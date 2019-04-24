@@ -63,22 +63,6 @@ fi
 
 sudo -u $PGUSER mkdir -p "$TPCHTMP" || die "Failed to create temporary directory: '$TPCHTMP'"
 
-if $REMAKE_DATA
-then
-  cd "$TPCHTMP"
-  sudo -u $PGUSER cp "$BASEDIR/dbgen/dists.dss" .
-  # Run dbgen with "force", to overwrite existing files
-  # Create table files separately to have better IO throughput
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T c &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T s &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T n &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T r &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T O &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T L &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T P &
-  sudo -u $PGUSER "$BASEDIR/dbgen/dbgen" -s $SCALE -f -v -T S &
-fi
-
 # Wait for all pending jobs to finish.
 for p in $(jobs -p);
 do

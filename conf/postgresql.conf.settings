@@ -1,0 +1,14 @@
+checkpoint_timeout = 3600s
+checkpoint_completion_target = 0.9
+shared_buffers = 1GB
+maintenance_work_mem = 1GB
+log_destination = 'stderr'
+logging_collector = on
+log_directory = 'pg_log'
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_file_mode = 0600
+client_min_messages = notice
+log_min_messages = warning
+log_min_error_statement = error
+log_statement = 'all'
+log_timezone = 'Europe/Madrid'

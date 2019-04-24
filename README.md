@@ -79,3 +79,5 @@ argument to the tpch_runall_seq:
 ```
 This will create a directory perfdata-my-config and put the results in it.
 
+-integrate check answers (inside of /dbgen)
+-there are alternative versions of some benchmarks (also in dbgen)
