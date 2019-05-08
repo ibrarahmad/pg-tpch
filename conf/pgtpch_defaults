@@ -3,7 +3,7 @@
 # Configuration variables
 # Scale factor. 1 = 1GB, 10 = 10GB. TPC-H has rules about which scale factors
 # are considered valid for comparative purposes.
-SCALE=.01 #GB
+SCALE=25 #GB
 
 # Other configuration variables
 BASEDIR=$(dirname "$0")
